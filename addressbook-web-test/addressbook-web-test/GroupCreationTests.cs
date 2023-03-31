@@ -18,7 +18,7 @@ namespace WebAddressbookTests //пространство имен
         private bool acceptNextAlert = true; //поле
 
         [SetUp]
-        public void SetupTest() //метод
+        public void SetupTest() // метод
         {
             driver = new FirefoxDriver();
             baseURL = "http://localhost/addressbook";
