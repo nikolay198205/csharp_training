@@ -77,7 +77,6 @@ namespace WebAddressbookTests //пространство имен
         private void InitGroupCreation()
         {
             driver.FindElement(By.Name("new")).Click();
-            driver.FindElement(By.XPath("//body")).Click();
         }
 
         private void GoToGroupPage()
@@ -95,7 +94,6 @@ namespace WebAddressbookTests //пространство имен
             driver.FindElement(By.Name("pass")).Clear();
             driver.FindElement(By.Name("pass")).SendKeys(password);
             driver.FindElement(By.XPath("//input[@value='Login']")).Click();
-           driver.FindElement(By.XPath("//body")).Click();
         }
         private void OpenHomePage()
         {
