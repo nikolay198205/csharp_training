@@ -9,7 +9,7 @@ namespace addressbook_web_tests
    // [TestClass]
     public class Utitled
     {
-      // [TestMetod]
+     // [TestMetod]
         public void TestMethodSquare()
         {
             Square s1 = new Square(5); //переменная (объект) класса Square
@@ -23,6 +23,7 @@ namespace addressbook_web_tests
             s3.Size = 15;
             Assert.AreEqual(s1.Size, 15);
 
+            s2.Colored = true; //общее свойство присущее любым фигурам
 
         }
 

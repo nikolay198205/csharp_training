@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 namespace addressbook_web_test
 {
 
-    class Square
+    class Square : Figure
     {
         private int size;
 
@@ -22,6 +23,7 @@ namespace addressbook_web_test
             get { return size; }
             set { size = value; }
         }
+
     }
   }
 

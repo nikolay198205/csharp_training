@@ -26,7 +26,7 @@ namespace WebAddressbookTests //пространство имен
         }
 
         [TearDown]
-        public void TeardownTest() //метод содержать код
+        public void TeardownTest() //метод содержат код
         {
             try
             {
@@ -43,10 +43,15 @@ namespace WebAddressbookTests //пространство имен
         public void GroupCreationTest() //тестовый метод
         {
             OpenHomePage();
-            Login("admin", "secret");
+            Login(new AccountData("admin", "secret")); // тут будем передавать один обект с параметрами admin и secret
             GoToGroupPage();
             InitGroupCreation();
-            FillGroupForm("aaaa", "sss", "ddd");
+            
+            GroupData group = new GroupData("aaa");
+            group.Header = "dddd";
+            group.Footer = "ffff";
+            FillGroupForm(group);
+            
             SubmitNewGroupCreation();
             ReturnToGroupPage();
         }
@@ -61,17 +66,17 @@ namespace WebAddressbookTests //пространство имен
             driver.FindElement(By.Name("submit")).Click();
         }
 
-        private void FillGroupForm(string name, string header, string footer)
+        private void FillGroupForm(GroupData group) // метод
         {
             driver.FindElement(By.Name("group_name")).Click();
             driver.FindElement(By.Name("group_name")).Clear();
-            driver.FindElement(By.Name("group_name")).SendKeys(name);
+            driver.FindElement(By.Name("group_name")).SendKeys(group.Name);
             driver.FindElement(By.Name("group_header")).Click();
             driver.FindElement(By.Name("group_header")).Clear();
-            driver.FindElement(By.Name("group_header")).SendKeys(header);
+            driver.FindElement(By.Name("group_header")).SendKeys(group.Header);
             driver.FindElement(By.Name("group_footer")).Click();
             driver.FindElement(By.Name("group_footer")).Clear();
-            driver.FindElement(By.Name("group_footer")).SendKeys(footer);
+            driver.FindElement(By.Name("group_footer")).SendKeys(group.Footer);
         }
 
         private void InitGroupCreation()
@@ -85,14 +90,14 @@ namespace WebAddressbookTests //пространство имен
             driver.FindElement(By.LinkText("groups")).Click();
         }
 
-        private void Login(string username, string password)
+        private void Login(AccountData account) // метод. будем в него принимать один параметр типа AccountData
         {
             driver.FindElement(By.Name("user")).Click();
             driver.FindElement(By.Name("user")).Clear();
-            driver.FindElement(By.Name("user")).SendKeys(username);
+            driver.FindElement(By.Name("user")).SendKeys(account.Username); // вводятся в поля значения свойств объекта account
             driver.FindElement(By.Name("pass")).Click();
             driver.FindElement(By.Name("pass")).Clear();
-            driver.FindElement(By.Name("pass")).SendKeys(password);
+            driver.FindElement(By.Name("pass")).SendKeys(account.Password); // вводятся в поля значения свойств объекта account
             driver.FindElement(By.XPath("//input[@value='Login']")).Click();
         }
         private void OpenHomePage()
