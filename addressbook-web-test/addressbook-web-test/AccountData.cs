@@ -24,13 +24,13 @@ namespace WebAddressbookTests
         public string Username // cвойство. Позволяет быстро менять значения
         {
             get { return username; } // возвращает значение поля 
-            set { username = value} // присваивает значение
+            set { username = value; } // присваивает значение
         }
 
         public string Password // cвойство. Позволяет быстро менять значения
         {
             get { return password; } // возвращает значение поля 
-            set { password = value} // присваивает значение
+            set { password = value; } // присваивает значение
         }
 
     }

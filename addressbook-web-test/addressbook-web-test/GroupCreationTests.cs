@@ -47,6 +47,7 @@ namespace WebAddressbookTests //пространство имен
             GoToGroupPage();
             InitGroupCreation();
             
+            //вместо конструктора можно задавать данные отдельными полями
             GroupData group = new GroupData("aaa");
             group.Header = "dddd";
             group.Footer = "ffff";
