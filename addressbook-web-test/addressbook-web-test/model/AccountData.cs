@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 //Тут задаются логин и пароль пользователя
 
 
-namespace WebAddressbookTests
+namespace addressbook_web_test.model
 {
-    internal class AccountData // Класс AccountData
+    public class AccountData // Класс AccountData
     {
-        private string username; // значение
-        private string password; // значение
+        public string username; // значение
+        public string password; // значение
 
 
         public AccountData(string username, string password) //конструктор/ позволит коструировать новые объекты
