@@ -22,16 +22,29 @@ namespace WebAddressbookTests
         {
            manager.Navigator.GoToGroupsPage(); // обращаемся к менеджеру чтобы он предоставил доступ к другому помошнику
            InitGroupCreation();
-           FillGroupForm(group);
-           SubmitNewGroupCreation();
+           FillGroupForm(group); // заполнить появившуюся форму
+           SubmitGroupCreation();
            ReturnToGroupsPage();
             return this;
         }
 
+        public GroupHelper Modify(int p, GroupData newData)
+        {
+            manager.Navigator.GoToGroupsPage(); //переход на страницу групп. используем помошник
+            SelectGroup(p); //выбрать группу
+            InitGroupModification(); // модифицировать группу
+            FillGroupForm(newData); // заполнить появившуюся форму
+            SubmitGroupModification();
+            ReturnToGroupsPage();
+            return this; // чтобы можно было участвовать в цепочках
+        }
+
+      
+
         public GroupHelper Remove(int p)
         {
             manager.Navigator.GoToGroupsPage(); //переход на страницу групп. используем помошник
-            SelectGroup(1); //выбрать группу
+            SelectGroup(p); //выбрать группу
             RemoveGroup(); // удалить группу
             ReturnToGroupsPage(); // вернуться на страницу групп
             return this;
@@ -58,17 +71,12 @@ namespace WebAddressbookTests
             return this;
         }
 
-        public GroupHelper SubmitNewGroupCreation()
+        public GroupHelper SubmitGroupCreation()
         {
             driver.FindElement(By.Name("submit")).Click();
             return this;
         }
 
-        public GroupHelper RemoveGroup() // удаление группы
-        {
-            driver.FindElement(By.Name("delete")).Click();
-            return this;
-        }
 
         public GroupHelper SelectGroup(int index)
         {
@@ -84,6 +92,24 @@ namespace WebAddressbookTests
             return this;
         }
 
+        public GroupHelper RemoveGroup() // удаление группы
+        {
+            driver.FindElement(By.Name("delete")).Click();
+            return this;
+        }
+
+
+        private GroupHelper SubmitGroupModification()
+        {
+            driver.FindElement(By.Name("update")).Click();
+            return this;
+        }
+
+        private GroupHelper InitGroupModification()
+        {
+            driver.FindElement(By.Name("edit")).Click();
+            return this;
+        }
 
     }
 }

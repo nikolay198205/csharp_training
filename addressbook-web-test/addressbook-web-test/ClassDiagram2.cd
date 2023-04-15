@@ -15,7 +15,7 @@
   <Class Name="WebAddressbookTests.GroupHelper" Collapsed="true">
     <Position X="8.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAICAAAAAABAAAAAAAAAAAAAAAABIEAAAAAAAABAAAA=</HashCode>
+      <HashCode>AAICAAAAAABAAAAAAAAABAAAAAABIEAAAAAAAABAAAA=</HashCode>
       <FileName>appmanager\GroupHelper.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -37,7 +37,7 @@
     <Position X="0.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>tests\GroupRemovalTest.cs</FileName>
+      <FileName>tests\GroupRemovalTests.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WebAddressbookTests.GroupCreationTests" Collapsed="true">
