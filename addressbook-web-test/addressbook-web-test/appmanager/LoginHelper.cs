@@ -12,10 +12,11 @@ namespace WebAddressbookTests
 {
     public class LoginHelper : HelperBase
     {
-       
+        //private ApplicationManager manager; //пока не понял нужно это тут или нет???
 
-        public LoginHelper(IWebDriver driver) : base(driver)// конструктор для передачи адресов в driver
+        public LoginHelper(ApplicationManager manager) : base(manager)// конструктор для передачи адресов в driver
         {
+           
         }
 
 

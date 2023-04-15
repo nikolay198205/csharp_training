@@ -14,7 +14,7 @@ namespace WebAddressbookTests
   
         private string baseURL; // объявление поля адрес URL
 
-        public NavigetionHelper(IWebDriver driver, string baseURL) : base(driver)// конструктор для передачи адресов в driver
+        public NavigetionHelper(ApplicationManager manager, string baseURL) : base(manager)// конструктор для передачи адресов в driver
         {
             this.baseURL = baseURL; // 
         }

@@ -16,12 +16,8 @@ namespace WebAddressbookTests
         [Test]
         public void GroupRemovalTest()
         {
-            app.Navigator.GoToHomePage(); // переход на домащнюю страницу.  используем помошник
-            app.Auth.Login(new AccountData ("admin", "secret")); // логирование. Используем помошник
-            app.Navigator.GoToGroupsPage(); //переход на страницу групп. используем помошник
-            app.Groups.SelectGroup(1); //выбрать группу
-            app.Groups.RemoveGroup(); // удалить группу
-            app.Groups.ReturnToGroupsPage(); // вернуться на страницу групп
+            app.Groups.Remove(1);
+           
         }
 
 

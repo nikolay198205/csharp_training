@@ -11,28 +11,36 @@ namespace WebAddressbookTests //пространство имен
     public class GroupCreationTests : TestBase // объявляем тесты наследниками TestBase//Класс для проверки правильности создания групп
     {
         [Test]
-        public void GroupCreationTest() //тестовый метод
+        public void GroupCreationTest() //тестовый метод по проверке не пустых значений в группе
         {
-            app.Navigator.GoToHomePage(); // переход на домащнюю страницу. используем помошника
-            app.Auth.Login(new AccountData("admin", "secret")); // тут будем передавать один обект с параметрами admin и secret
-            app.Navigator.GoToGroupsPage();
-            app.Groups.InitGroupCreation();
-            
-            //вместо конструктора можно задавать данные отдельными полями
+           //создаем тестовые данные
             GroupData group = new GroupData("aaa");
             group.Header = "dddd";
             group.Footer = "ffff";
-            
-            app.Groups.FillGroupForm(group);
-            app.Groups.SubmitNewGroupCreation();
-            app.Groups.ReturnToGroupsPage();
+           //переходим настраницу
+            app.Navigator.GoToGroupsPage();
+            //и выполняем цепочку действий
+            app.Groups.Create(group);
+           
         }
 
-     
-       
-      
-      
 
-      
+
+        [Test] // который проверяет, что можно создавать группы с пустыми именнами
+        public void EmptyGroupCreationTest() //тестовый метод по проверке пустых значений в группы
+        {
+           
+            GroupData group = new GroupData("");
+            group.Header = "";
+            group.Footer = "";
+            
+            app.Navigator.GoToGroupsPage();
+
+            //и выполняем цепочку действий
+            app.Groups.Create(group);
+        }
+
+
+
     }
 }

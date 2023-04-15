@@ -14,7 +14,7 @@ using OpenQA.Selenium;
 
 namespace WebAddressbookTests
 {
-    public class AplicationManager
+    public class ApplicationManager
     {
         protected IWebDriver driver; // protectуd - оно внутренее, но наледники получают доступ
         protected string baseURL; // protectуd - оно внутренее, но наледники получают доступ
@@ -23,13 +23,23 @@ namespace WebAddressbookTests
         protected LoginHelper loginHelper; // нужно объявить помошника тут
         protected NavigetionHelper navigator; // нужно объявить помошника тут
         protected GroupHelper groupHelper; // нужно объявить помошника тут
-
-        public AplicationManager()
+            
+        public ApplicationManager()
         {
             //добавляем код который создает помошников. Это код инициализации
-            loginHelper = new LoginHelper(driver);
-            navigator = new NavigetionHelper(driver, baseURL);
-            groupHelper = new GroupHelper(driver);
+
+            driver = new FirefoxDriver();
+            baseURL = "http://localhost/addressbook/";
+          
+
+            loginHelper = new LoginHelper(this);
+            navigator = new NavigetionHelper(this, baseURL);
+            groupHelper = new GroupHelper(this);
+        }
+
+        public IWebDriver Driver 
+        {
+            get { return driver; }
         }
 
 
@@ -56,21 +66,6 @@ namespace WebAddressbookTests
         public GroupHelper Groups
         { get { return groupHelper; } }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+     
     }
 }
