@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WebAddressbookTests // пространство имен
 {
-    internal class GroupData // класс с информацией
+    public class GroupData // класс с информацией
     {
         private string name; // значение
         private string header= ""; // значение с дефолтным пустым значением

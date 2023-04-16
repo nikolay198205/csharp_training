@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace WebAddressbookTests
 {
-    internal class AccountData // Класс AccountData
+    public class AccountData // Класс AccountData
     {
         private string username; // значение
         private string password; // значение
