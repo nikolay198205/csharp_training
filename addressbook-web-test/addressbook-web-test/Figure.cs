@@ -12,7 +12,7 @@ namespace addressbook_web_test
 
         public bool Colored
         {
-           //авппр
+           //авппрпррлоимр55
 
             get
             {
