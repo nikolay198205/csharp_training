@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WebAddressbookTests // пространство имен
 {
-    internal class ContactData // класс с информацией
+    public class ContactData // класс с информацией
     {
         private string first_name; // значение
         private string middle_name; // значение 

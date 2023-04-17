@@ -23,7 +23,8 @@ namespace WebAddressbookTests
         protected LoginHelper loginHelper; // нужно объявить помошника тут
         protected NavigetionHelper navigator; // нужно объявить помошника тут
         protected GroupHelper groupHelper; // нужно объявить помошника тут
-            
+        private ContactHelper contactHelper;
+
         public ApplicationManager()
         {
             //добавляем код который создает помошников. Это код инициализации
@@ -35,6 +36,7 @@ namespace WebAddressbookTests
             loginHelper = new LoginHelper(this);
             navigator = new NavigetionHelper(this, baseURL);
             groupHelper = new GroupHelper(this);
+            contactHelper = new ContactHelper(this);
         }
 
         public IWebDriver Driver 
@@ -65,6 +67,9 @@ namespace WebAddressbookTests
 
         public GroupHelper Groups
         { get { return groupHelper; } }
+
+        public ContactHelper Contacts
+        { get { return contactHelper; } }
 
      //
     }
