@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 //Тут задаются логин и пароль пользователя
 
 
-namespace addressbook_web_test.model
+namespace WebAddressbookTests
 {
     public class AccountData // Класс AccountData
     {

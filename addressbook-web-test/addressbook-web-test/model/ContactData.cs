@@ -11,8 +11,8 @@ namespace WebAddressbookTests // пространство имен
     public class ContactData // класс с информацией
     {
         private string first_name; // значение
-        private string middle_name; // значение 
-        private string last_name;
+        private string middle_name = ""; // значение 
+        private string last_name = "";
 
         public ContactData(string first_name)// конструктор/ основная информация о нашем контакте
         {

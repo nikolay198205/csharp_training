@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using addressbook_web_test.model;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,23 +19,51 @@ namespace WebAddressbookTests
         }
 
         //для контактов
-        public void RemoveContact()
+
+
+        public ContactHelper Create(ContactData contact)
+        {
+            manager.Navigator.GoToHomePage(); // обращаемся к менеджеру чтобы он предоставил доступ к другому помошнику
+            InitContactCreation();
+            FillContactForm(contact); // заполнить появившуюся форму
+            return this;
+        }
+
+       
+        public ContactHelper Remove(int p)
+        {
+            manager.Navigator.GoToHomePage(); //переход на страницу групп. используем помошник
+            SelectContact(p); //выбрать группу
+            RemoveContact(); // удалить группу
+            return this;
+        }
+
+
+
+
+
+
+
+        public ContactHelper RemoveContact()
         {
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
             Assert.IsTrue(Regex.IsMatch(CloseAlertAndGetItsText(), "^Delete 1 addresses[\\s\\S]$"));
+            return this;
         }
 
-        public void SelectContact(int number)
+        public ContactHelper SelectContact(int number)
         {
             driver.FindElement(By.Id(System.Convert.ToString(number))).Click();
+            return this;
         }
-        public void InitContactCreation()
+        public ContactHelper InitContactCreation()
         {
 
             driver.FindElement(By.LinkText("add new")).Click();
+            return this;
         }
 
-        public void FillContactForm(ContactData contact) // метод заполнения полей контакта данными
+        public ContactHelper FillContactForm(ContactData contact) // метод заполнения полей контакта данными
         {
             driver.FindElement(By.Name("firstname")).Click();
             driver.FindElement(By.Name("firstname")).Clear();
@@ -46,6 +75,7 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("lastname")).Clear();
             driver.FindElement(By.Name("lastname")).SendKeys(contact.Last_name);
             driver.FindElement(By.XPath("//div[@id='content']/form/input[21]")).Click();
+            return this;
         }
 
 

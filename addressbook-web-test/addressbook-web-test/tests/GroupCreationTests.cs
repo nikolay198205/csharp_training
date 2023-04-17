@@ -18,7 +18,7 @@ namespace WebAddressbookTests //пространство имен
             group.Header = "dddd";
             group.Footer = "ffff";
            //переходим настраницу
-            app.Navigator.GoToGroupsPage();
+           // app.Navigator.GoToGroupsPage();
             //и выполняем цепочку действий
             app.Groups.Create(group);
            

@@ -16,13 +16,10 @@ namespace WebAddressbookTests //пространство имен
       [Test]
         public void ContactCreationTest() //тестовый метод
         {
-            app.Navigator.GoToHomePage();
-            app.Auth.Login(new AccountData("admin", "secret")); // тут будем передавать один обект с параметрами admin и secret
-            app.Contacts.InitContactCreation();
             ContactData contact = new ContactData("A"); // тут записываем данные в поля контактов
             contact.Last_name = "B";
             contact.Middle_name = "C";
-            app.Contacts.FillContactForm(contact); // тут передаем данные контакта все разом
+            app.Contacts.Create(contact); // тут передаем данные контакта все разом
 
         }
 
