@@ -99,13 +99,13 @@ namespace WebAddressbookTests
         }
 
 
-        private GroupHelper SubmitGroupModification()
+        public GroupHelper SubmitGroupModification()
         {
             driver.FindElement(By.Name("update")).Click();
             return this;
         }
 
-        private GroupHelper InitGroupModification()
+        public GroupHelper InitGroupModification()
         {
             driver.FindElement(By.Name("edit")).Click();
             return this;

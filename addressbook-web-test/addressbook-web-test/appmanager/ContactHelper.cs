@@ -39,29 +39,53 @@ namespace WebAddressbookTests
         }
 
 
+        public ContactHelper Modify(int p, ContactData newData)
+        {
+            manager.Navigator.GoToHomePage(); //переход на страницу групп. используем помошник
+            SelectContact(p); //выбрать контакт
+            InitContactModification(); // модифицировать группу
+            FillContactForm(newData); // заполнить появившуюся форму
+            SubmitContactModification();
+            return this; // чтобы можно было участвовать в цепочках
+        }
 
 
 
 
-
-        public ContactHelper RemoveContact()
+        public ContactHelper RemoveContact() // нажатие кнопки "Удаление контакта"
         {
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
             Assert.IsTrue(Regex.IsMatch(CloseAlertAndGetItsText(), "^Delete 1 addresses[\\s\\S]$"));
             return this;
         }
 
-        public ContactHelper SelectContact(int number)
+        public ContactHelper SelectContact(int number) // выбор контакта по номеру
         {
             driver.FindElement(By.Id(System.Convert.ToString(number))).Click();
             return this;
         }
-        public ContactHelper InitContactCreation()
+        
+        public ContactHelper InitContactModification() // нажимаем кнопку "Править"
+        {
+            driver.FindElement(By.XPath("//img[@alt='Edit']")).Click();
+            return this;
+        }
+        
+        
+        public ContactHelper InitContactCreation() // нажимаем кнопку "Добавить"
         {
 
             driver.FindElement(By.LinkText("add new")).Click();
             return this;
         }
+
+      
+        public ContactHelper SubmitContactModification() // нажимаем кнопку "Обновить"
+        {
+            driver.FindElement(By.Name("update")).Click();
+            return this;
+        }
+
 
         public ContactHelper FillContactForm(ContactData contact) // метод заполнения полей контакта данными
         {
@@ -79,7 +103,7 @@ namespace WebAddressbookTests
         }
 
 
-        public string CloseAlertAndGetItsText()
+        public string CloseAlertAndGetItsText() // закрытие предупреждения перед удалением контакта
         {
             try
             {
