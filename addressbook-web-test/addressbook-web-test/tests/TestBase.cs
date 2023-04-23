@@ -12,17 +12,17 @@ namespace WebAddressbookTests
     {
         public ApplicationManager app;
 
-        [SetUp]
+        [OneTimeSetUp]
         public void SetupTest() // метод для инициализации который инициализирует: драйвер, помошников и метод
                                 //и метод тердаун который останавливает драйвер в конце
         {
             //driver = new FirefoxDriver();
             //baseURL = "http://localhost/addressbook/";
             // verificationErrors = new StringBuilder();
-            app = TestSuiteFixture.app;
+            app = ApplicationManager.GetInstance(); // получаем доступ к тому единственному экземпляру, который хранится внутри ApplicationManager, который автоматически создается при первом обращении
 
 
-           
+
 
         }
 
