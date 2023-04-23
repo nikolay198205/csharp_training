@@ -28,15 +28,18 @@ namespace WebAddressbookTests
         public ApplicationManager()
         {
             //добавляем код который создает помошников. Это код инициализации
-
+           
             driver = new FirefoxDriver();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
             baseURL = "http://localhost/addressbook/";
-          
+            
 
             loginHelper = new LoginHelper(this);
             navigator = new NavigetionHelper(this, baseURL);
             groupHelper = new GroupHelper(this);
             contactHelper = new ContactHelper(this);
+            
+        
         }
 
         public IWebDriver Driver 

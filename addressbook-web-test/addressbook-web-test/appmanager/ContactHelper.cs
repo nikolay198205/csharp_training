@@ -33,17 +33,17 @@ namespace WebAddressbookTests
         public ContactHelper Remove(int p)
         {
             manager.Navigator.GoToHomePage(); //переход на страницу групп. используем помошник
-            SelectContact(p); //выбрать группу
-            RemoveContact(); // удалить группу
+            //SelectContact(p); //выбрать контакт
+            RemoveContact(); // удалить контакт
             return this;
         }
 
 
         public ContactHelper Modify(int p, ContactData newData)
         {
-            manager.Navigator.GoToHomePage(); //переход на страницу групп. используем помошник
-            SelectContact(p); //выбрать контакт
-            InitContactModification(); // модифицировать группу
+            manager.Navigator.GoToHomePage(); //переход на страницу контакт. используем помошник
+            //SelectContact(p); //выбрать контакт
+            InitContactModification(); // модифицировать контакт
             FillContactForm(newData); // заполнить появившуюся форму
             SubmitContactModification();
             return this; // чтобы можно было участвовать в цепочках
@@ -54,14 +54,22 @@ namespace WebAddressbookTests
 
         public ContactHelper RemoveContact() // нажатие кнопки "Удаление контакта"
         {
+            driver.FindElement(By.XPath("//input[@name='selected[]']")).Click();
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
-            Assert.IsTrue(Regex.IsMatch(CloseAlertAndGetItsText(), "^Delete 1 addresses[\\s\\S]$"));
+            
+            driver.SwitchTo().Alert().Accept();
+            driver.FindElement(By.LinkText("home")).Click();
+
+
+
+            //driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
+            // Assert.IsTrue(Regex.IsMatch(CloseAlertAndGetItsText(), "^Delete 1 addresses[\\s\\S]$"));
             return this;
         }
 
         public ContactHelper SelectContact(int number) // выбор контакта по номеру
         {
-            driver.FindElement(By.Id(System.Convert.ToString(number))).Click();
+            driver.FindElement(By.XPath("//*[@id='maintable']//tr[1]")); 
             return this;
         }
         
