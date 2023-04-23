@@ -19,19 +19,12 @@ namespace WebAddressbookTests
             //driver = new FirefoxDriver();
             //baseURL = "http://localhost/addressbook/";
             // verificationErrors = new StringBuilder();
-            app = new ApplicationManager();
-            app.Navigator.GoToHomePage();
-            app.Auth.Login(new AccountData("admin", "secret"));
+            app = TestSuiteFixture.app;
+
+
+           
 
         }
-
-        [TearDown]
-        public void TeardownTest() // содержит код в котором останавливается броузер
-        {
-            app.Stop();
-
-        }
-
 
     }
 }
