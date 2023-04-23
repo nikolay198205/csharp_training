@@ -5,25 +5,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Schema;
 
-namespace addressbook_web_test.tests
+namespace WebAddressbookTests
 {
-
-    internal class UniteTest1
+    [TestFixture]
+    public class UniteTest1
     {
+        [Test]
         public void TestMetod1()
 
         {
-            double total = 1000;
+            double total = 900;
+            bool vipClient = true;
 
-            if (total > 1000)
+            if (total > 1000 || vipClient) // && - И. || или
             {
                 total = total * 0.9;
-                System.Console.Out.Write("Скидка 10%, общая сумма " + total);
+                System.Console.Out.WriteLine("Скидка 10%, общая сумма " + total);
             }
 
             else
             {
-                System.Console.Out.Write("Скидка 10%, общая сумма " + total);
+
+                System.Console.Out.WriteLine("Скидка 10%, общая сумма " + total);
             }
         }
 

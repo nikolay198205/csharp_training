@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 // содержит информацию о группе
 
-namespace addressbook_web_test.model // пространство имен
+namespace WebAddressbookTests // пространство имен
 {
     public class GroupData // класс с информацией
     {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium;
-using addressbook_web_test.model;
+
 
 namespace WebAddressbookTests
 {
@@ -59,17 +59,15 @@ namespace WebAddressbookTests
 
         public GroupHelper FillGroupForm(GroupData group) // метод
         {
-            driver.FindElement(By.Name("group_name")).Click();
-            driver.FindElement(By.Name("group_name")).Clear();
-            driver.FindElement(By.Name("group_name")).SendKeys(group.Name);
-            driver.FindElement(By.Name("group_header")).Click();
-            driver.FindElement(By.Name("group_header")).Clear();
-            driver.FindElement(By.Name("group_header")).SendKeys(group.Header);
-            driver.FindElement(By.Name("group_footer")).Click();
-            driver.FindElement(By.Name("group_footer")).Clear();
-            driver.FindElement(By.Name("group_footer")).SendKeys(group.Footer);
+            //Будущие параметры метода оформляем как локальные переменные
+
+            Type(By.Name("group_name"), group.Name);// найти элемент по локатору group_name и вписать нужыне значения
+            Type(By.Name("group_header"), group.Header);
+            Type(By.Name("group_footer"), group.Footer);           
             return this;
         }
+
+      
 
         public GroupHelper SubmitGroupCreation()
         {

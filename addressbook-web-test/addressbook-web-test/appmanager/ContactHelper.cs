@@ -1,5 +1,4 @@
-﻿using addressbook_web_test.model;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -97,15 +96,10 @@ namespace WebAddressbookTests
 
         public ContactHelper FillContactForm(ContactData contact) // метод заполнения полей контакта данными
         {
-            driver.FindElement(By.Name("firstname")).Click();
-            driver.FindElement(By.Name("firstname")).Clear();
-            driver.FindElement(By.Name("firstname")).SendKeys(contact.First_name);
-            driver.FindElement(By.Name("middlename")).Click();
-            driver.FindElement(By.Name("middlename")).Clear();
-            driver.FindElement(By.Name("middlename")).SendKeys(contact.Middle_name);
-            driver.FindElement(By.Name("lastname")).Click();
-            driver.FindElement(By.Name("lastname")).Clear();
-            driver.FindElement(By.Name("lastname")).SendKeys(contact.Last_name);
+            Type(By.Name("firstname"), contact.First_name);
+            Type(By.Name("middlename"), contact.Middle_name);
+            Type(By.Name("lastname"), contact.Last_name);
+                       
             driver.FindElement(By.XPath("//div[@id='content']/form/input[21]")).Click();
             return this;
         }

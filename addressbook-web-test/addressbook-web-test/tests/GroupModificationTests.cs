@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using addressbook_web_test.model;
+
 
 namespace WebAddressbookTests
 {
@@ -16,8 +16,8 @@ namespace WebAddressbookTests
         {
 
             GroupData newData = new GroupData("zzz");
-            newData.Header = "ttt";
-            newData.Footer = "qqq";
+            newData.Header = null;
+            newData.Footer = null;
             app.Groups.Modify(1, newData);
 
         }
